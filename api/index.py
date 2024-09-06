@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
-# Hello World endpoint
 @app.route('/')
 def hello_world():
     return '''
@@ -14,30 +15,24 @@ def hello_world():
     <p>Replace <code>https://example.com</code> with the URL you want to scrape.</p>
     '''
 
-# Scrap endpoint to get content of a webpage
 @app.route('/scrap')
 def scrap():
-    # Get the URL from the query parameter
     url = request.args.get('url')
 
     if not url:
         return jsonify({'error': 'URL parameter is required'}), 400
 
     try:
-        # Fetch the webpage content
         response = requests.get(url)
-        response.raise_for_status()  # Raise exception for HTTP errors
+        response.raise_for_status()
 
-        # Parse the content using BeautifulSoup
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Extract h1, h2, h3, h4, p, and div tags
         elements = {}
         tags = ['h1', 'h2', 'h3', 'h4', 'p', 'div']
         for tag in tags:
             elements[tag] = [elem.get_text(strip=True) for elem in soup.find_all(tag)]
 
-        # Return the extracted content as JSON
         return jsonify({
             'url': url,
             'elements': elements
