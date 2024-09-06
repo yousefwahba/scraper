@@ -1,28 +1,37 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# Flask Web Scraping API
 
-# Flask + Vercel
+This is a Python server that provides an endpoint to scrape content from websites.
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Usage
 
-## Demo
+- **`/scrap?url=<website>`**: Scrapes the content of the given URL and extracts text from `h1`, `h2`, `h3`, `h4`, `p`, and `div` tags.
 
-https://flask-python-template.vercel.app/
+### Example:
 
-## How it Works
-
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-npm i -g vercel
-vercel dev
+```
+/scrap?url=https://example.com
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+### Scraping Result of Cloudilic [Link](https://flask-pi.vercel.app/scrap?url=https://cloudilic.com/)
 
-## One-Click Deploy
+![Scraping Result](https://imagizer.imageshack.com/img922/8347/TcryYq.png)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+## Setup
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+1. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the app:
+
+   ```bash
+   python api/index.py
+   ```
+
+3. Open `http://127.0.0.1:5000/` in your browser.
+
+## Deployment
+
+Deploy easily using Vercel:
