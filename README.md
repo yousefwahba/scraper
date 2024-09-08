@@ -58,7 +58,7 @@ Scraping the content of Cloudilic:
 - **Response**:
   ![Scraping Result](https://imagizer.imageshack.com/img922/8347/TcryYq.png)
 
-[Check it out here](https://flask-pi.vercel.app/scrap?url=https://cloudilic.com/)
+[Check it out here](https://scraper-py.vercel.app/scrap?url=https://cloudilic.com/)
 
 ---
 
@@ -96,5 +96,5 @@ You can then use the `/scrap` endpoint to scrape websites.
 
 ## Deployment
 
-This server is deployed on Vercel. You can access it [here](https://flask-pi.vercel.app/).
+This server is deployed on Vercel. You can access it [here](https://scraper-py.vercel.app/).
 
